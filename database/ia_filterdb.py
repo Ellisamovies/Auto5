@@ -122,16 +122,15 @@ async def get_search_results(chat_id, query, file_type=None, max_results=10, off
         filter = {'file_name': regex}
 
     if MULTIPLE_DATABASE == True:
-        cursor1 = col.find(filter)
-        cursor2 = sec_col.find(filter)
-    else:
-        cursor = col.find(filter)
+        cursor1 = col.find(filter).sort("_id", -1)
+cursor2 = sec_col.find(filter).sort("_id", -1)
+    else:cursor = col.find(filter).sort("_id", -1)
         
     if MULTIPLE_DATABASE == True:
         files1 = [file for file in cursor1]
         files2 = [file for file in cursor2]
         files_ = files1 + files2
-        files = files_[offset:][:max_results]
+        files = files_[offset: offset + max_results]
         total_results = len(files_)
         next_offset = offset + max_results
         if next_offset >= total_results:
@@ -178,10 +177,10 @@ async def get_bad_files(query, file_type=None, filter=False):
         total_results = col.count_documents(filter)
     
     if MULTIPLE_DATABASE == True:
-        cursor1 = col.find(filter)
-        cursor2 = sec_col.find(filter)
+        cursor1 = col.find(filter).sort("_id", -1)
+cursor2 = sec_col.find(filter).sort("_id", -1)
     else:
-        cursor = col.find(filter)
+        cursor = col.find(filter).sort("_id", -1)
     # Get list of files
     if MULTIPLE_DATABASE == True:
         files1 = list(cursor1)
