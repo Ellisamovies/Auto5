@@ -5,12 +5,12 @@
   currency: "INR",
   validity: 30,
   validityperiod: "days",
-  features: { 
+  features: {
     [
     "All from free",
     "Membership of Premium",
     "No Advertisement",
     "Priority Support",
     ]
-  }
+  
 }
