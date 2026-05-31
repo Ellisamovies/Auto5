@@ -1,0 +1,16 @@
+{
+  id:"01",
+  name: "Plus",
+  price: "199",
+  currency: "INR",
+  validity: "30",
+  validityperiod: "days",
+  features: { 
+    [
+    "All from free",
+    "Membership of Premium",
+    "No Advertisement",
+    "Priority Support",
+    ]
+  }
+}
