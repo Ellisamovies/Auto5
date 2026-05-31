@@ -1,9 +1,9 @@
 {
   id:"01",
   name: "Plus",
-  price: "199",
+  price: 199,
   currency: "INR",
-  validity: "30",
+  validity: 30,
   validityperiod: "days",
   features: { 
     [
